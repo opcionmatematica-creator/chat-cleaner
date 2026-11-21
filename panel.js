@@ -82,7 +82,7 @@
   const elements = (root, query) => Array.from(root.querySelectorAll(query)).filter(visible);
   const check = () => {
     if (stopped) throw new Error("Operación cancelada.");
-    if (document.hidden || location.pathname !== initialPath) throw new Error("Cambió la pestaña o la página. Vuelve a revisar.");
+    if (document.hidden || location.pathname !== initialPath) throw new Error("Se detuvo porque cambiaste de pestaña, de ventana o de página. Deja esta pestaña a la vista, pulsa «Revisar chats» y vuelve a borrar: se procesan solo los chats que quedan.");
   };
   let initialPath;
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -154,7 +154,7 @@
       }
     };
     const scroller = historyPosition[0]?.[0];
-    if (profile.name !== "Gemini" || !scroller) {
+    if (!scroller) {
       collect();
       return Array.from(found.values());
     }
@@ -164,13 +164,13 @@
       while (scroller.isConnected) {
         check();
         collect();
-        announce("Cargando historial de Gemini · " + found.size + " chats encontrados");
+        announce("Cargando historial de " + profile.name + " · " + found.size + " chats encontrados");
         const before = scroller.scrollTop;
         const next = before + Math.max(1, Math.floor(scroller.clientHeight * 0.8));
         scroller.scrollTo({ top: next, behavior: "instant" });
         await delay(90);
         if (scroller.scrollTop > before) continue;
-        // Al llegar al final, Gemini muestra un indicador de carga y añade más chats tras ~1-2 s.
+        // Al llegar al final, el sitio muestra un indicador de carga y añade más chats tras ~1-2 s.
         const height = scroller.scrollHeight;
         let grew = false;
         for (let waited = 0; waited < 4000 && !grew; waited += 250) {
@@ -184,9 +184,9 @@
         scroller.scrollTo({ top: scroller.scrollHeight, behavior: "instant" });
         await delay(90);
         if (scroller.scrollTop > before) continue;
-        throw new Error("Gemini dejó de desplazar el historial. Vuelve a revisar con la barra lateral abierta.");
+        throw new Error(profile.name + " dejó de desplazar el historial. Vuelve a revisar con la barra lateral abierta.");
       }
-      if (!scroller.isConnected) throw new Error("Gemini reemplazó el historial durante la revisión. Vuelve a abrir el panel.");
+      if (!scroller.isConnected) throw new Error(profile.name + " reemplazó el historial durante la revisión. Vuelve a abrir el panel.");
       return Array.from(found.values());
     } finally {
       for (const [node, top] of historyPosition) {

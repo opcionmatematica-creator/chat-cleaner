@@ -37,12 +37,14 @@ It works the same on Windows, macOS and Linux.
 5. Click **Seleccionar no fijados** (*select unpinned*) and untick any chats you want to keep.
 6. Click **Borrar seleccionados** (*delete selected*), type `BORRAR` and click **Confirmar borrado** (*confirm deletion*).
 
-Click **Cancelar** (*cancel*) or press **Esc** to stop any operation. Keep the tab visible while it works.
+Click **Cancelar** (*cancel*) or press **Esc** to stop any operation.
+
+> **Keep the tab visible until it finishes.** Deleting many chats takes several minutes. If you switch tabs, windows or apps, the batch stops as a safety measure. To continue, come back, click **Revisar chats** and delete again: only the remaining chats are processed.
 
 ### What gets reviewed in each service
 
-- **Gemini**: walks the whole sidebar history and loads older chats automatically.
-- **ChatGPT and Claude**: reviews the chats visible on screen. Scroll and click **Revisar chats** again to process the rest.
+- The panel scrolls through the whole sidebar history and loads older chats automatically.
+- **Claude**: the sidebar only lists recent chats. For older ones, open **Chats** (`claude.ai/recents`) and repeat the process there.
 - Chats inside **projects** and **archived** chats are left out.
 
 ## Safety

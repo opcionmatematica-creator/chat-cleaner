@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Limpiador de chats",
   "description": "Borra en lote chats de ChatGPT, Gemini y Claude y conserva los fijados o favoritos.",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "permissions": [
     "activeTab",
     "scripting"

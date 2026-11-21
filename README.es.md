@@ -35,12 +35,14 @@ Funciona igual en Windows, macOS y Linux.
 5. Pulsa **Seleccionar no fijados** y desmarca los chats que quieras conservar.
 6. Pulsa **Borrar seleccionados**, escribe `BORRAR` y pulsa **Confirmar borrado**.
 
-Pulsa **Cancelar** o la tecla **Esc** para detener cualquier operación. Mantén la pestaña visible mientras trabaja.
+Pulsa **Cancelar** o la tecla **Esc** para detener cualquier operación.
+
+> **Deja la pestaña a la vista hasta que termine.** Borrar muchos chats tarda varios minutos. Si cambias de pestaña, de ventana o de programa, el lote se detiene por seguridad. Para continuar, vuelve, pulsa **Revisar chats** y borra de nuevo: solo se procesan los chats que quedan.
 
 ### Qué revisa en cada servicio
 
-- **Gemini**: recorre todo el historial de la barra lateral y carga los chats antiguos automáticamente.
-- **ChatGPT y Claude**: revisa los chats visibles en pantalla. Desplázate y vuelve a pulsar **Revisar chats** para procesar el resto.
+- El panel recorre todo el historial de la barra lateral y carga los chats antiguos automáticamente.
+- **Claude**: la barra lateral solo muestra los chats recientes. Para los antiguos, abre **Chats** (`claude.ai/recents`) y repite el proceso allí.
 - Los chats dentro de **proyectos** y los **archivados** quedan fuera.
 
 ## Seguridad
