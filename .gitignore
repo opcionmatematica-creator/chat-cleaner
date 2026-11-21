@@ -1,0 +1,10 @@
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Paquetes y diagnósticos locales
+*.zip
+*.crx
+*.pem
+diagnostico-*.txt
