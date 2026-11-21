@@ -1,58 +1,66 @@
-# Limpiador de chats
+# Chat Cleaner
 
-Extensión para navegadores basados en Chromium (Chrome, Edge, Brave) que borra en lote las conversaciones de **ChatGPT**, **Gemini** y **Claude** y conserva las que tienes fijadas o marcadas como favoritas.
+**English** · [Español](README.es.md)
 
-Trabaja haciendo clic en la propia interfaz web del servicio, dentro de la pestaña abierta y con tu sesión habitual. No usa servidores ni guarda datos: solo pide los permisos `activeTab` y `scripting`, que se activan cuando pulsas el icono de la extensión.
+A browser extension for Chromium-based browsers (Chrome, Edge, Brave) that bulk-deletes conversations in **ChatGPT**, **Gemini** and **Claude** while keeping the ones you have pinned or starred.
 
-> ⚠️ Borrar un chat es irreversible. Revisa la lista antes de confirmar.
+It works by clicking through each service's own web interface, inside the open tab and with your normal session. It uses no servers and stores no data: it only requests the `activeTab` and `scripting` permissions, which take effect when you click the extension icon.
 
-## Instalación
+> ⚠️ Deleting a chat cannot be undone. Review the list before confirming.
 
-1. Descarga este repositorio: **Code → Download ZIP** y descomprímelo, o clónalo:
+> The extension's panel is in Spanish. Button names below are shown as they appear on screen, with their English meaning.
+
+## Installation
+
+1. Download this repository: **Code → Download ZIP** and unzip it, or clone it:
    ```
    git clone https://github.com/opcionmatematica-creator/chat-cleaner.git
    ```
-2. Abre la página de extensiones del navegador:
+2. Open your browser's extensions page:
    - Chrome: `chrome://extensions`
    - Edge: `edge://extensions`
    - Brave: `brave://extensions`
-3. Activa **Modo de desarrollador**.
-4. Pulsa **Cargar descomprimida** (o **Cargar desempaquetada**) y elige la carpeta que contiene `manifest.json`.
+3. Turn on **Developer mode**.
+4. Click **Load unpacked** and select the folder that contains `manifest.json`.
 
-Funciona igual en Windows, macOS y Linux.
+It works the same on Windows, macOS and Linux.
 
-## Uso
+## Usage
 
-1. Abre ChatGPT, Gemini o Claude con tu sesión iniciada y deja visible el historial de chats en la barra lateral.
-2. Pulsa el icono **Limpiador de chats** en el menú de extensiones. Se abre un panel en la esquina de la página.
-3. Pulsa **Calibrar menú** y haz clic en el botón **⋯** de cualquier chat del historial. Así el panel aprende qué botón abre el menú de cada fila.
-4. Pulsa **Revisar chats**. El panel abre el menú de cada chat y lo clasifica:
-   - **protegido**: está fijado o es favorito. Nunca se selecciona.
-   - **no fijado**: se puede borrar.
-   - **verifica si es favorito** (solo Claude): márcalo a mano solo si lo reconoces.
-5. Pulsa **Seleccionar no fijados** y desmarca los chats que quieras conservar.
-6. Pulsa **Borrar seleccionados**, escribe `BORRAR` y pulsa **Confirmar borrado**.
+1. Open ChatGPT, Gemini or Claude while signed in, and keep the chat history visible in the sidebar.
+2. Click the **Limpiador de chats** icon in the extensions menu. A panel opens in the corner of the page.
+3. Click **Calibrar menú** (*calibrate menu*) and then click the **⋯** button of any chat in the history. This teaches the panel which button opens each row's menu.
+4. Click **Revisar chats** (*review chats*). The panel opens each chat's menu and classifies it:
+   - **protegido** (*protected*): pinned or starred. Never selected.
+   - **no fijado** (*not pinned*): can be deleted.
+   - **verifica si es favorito** (*check if starred*, Claude only): select it manually only if you recognize it.
+5. Click **Seleccionar no fijados** (*select unpinned*) and untick any chats you want to keep.
+6. Click **Borrar seleccionados** (*delete selected*), type `BORRAR` and click **Confirmar borrado** (*confirm deletion*).
 
-Pulsa **Cancelar** o la tecla **Esc** para detener cualquier operación. Mantén la pestaña visible mientras trabaja.
+Click **Cancelar** (*cancel*) or press **Esc** to stop any operation. Keep the tab visible while it works.
 
-### Qué revisa en cada servicio
+### What gets reviewed in each service
 
-- **Gemini**: recorre todo el historial de la barra lateral y carga los chats antiguos automáticamente.
-- **ChatGPT y Claude**: revisa los chats visibles en pantalla. Desplázate y vuelve a pulsar **Revisar chats** para procesar el resto.
-- Los chats dentro de **proyectos** y los **archivados** quedan fuera.
+- **Gemini**: walks the whole sidebar history and loads older chats automatically.
+- **ChatGPT and Claude**: reviews the chats visible on screen. Scroll and click **Revisar chats** again to process the rest.
+- Chats inside **projects** and **archived** chats are left out.
 
-## Seguridad
+## Safety
 
-Antes de borrar cada chat, la extensión vuelve a abrir su menú y comprueba que sigue sin estar fijado. Si la fila cambió, desapareció o aparece una ventana inesperada, omite ese chat o detiene el lote.
+Before deleting each chat, the extension reopens its menu and checks that it is still not pinned. If the row changed, disappeared, or an unexpected window shows up, it skips that chat or stops the batch.
 
-## Limitaciones
+## Limitations
 
-La extensión reconoce los menús por sus textos en español e inglés. Si un servicio cambia su interfaz, puede dejar de reconocer los botones; en ese caso el panel omite los chats en lugar de borrarlos.
+The extension recognizes menus by their Spanish and English labels. If a service changes its interface, the extension may stop recognizing the buttons; in that case the panel skips chats instead of deleting them.
 
-Para aplicar una actualización: descarga la nueva versión, pulsa **Actualizar** en la página de extensiones y recarga la pestaña del servicio.
+To apply an update: download the new version, click **Update** on the extensions page and reload the service's tab.
 
-## Ayuda de cada servicio
+## Help pages
 
-- [ChatGPT: chats fijados](https://help.openai.com/en/articles/6825453-how-do-i-use-chatgpt-with-browsing)
-- [Gemini: gestionar chats recientes y fijados](https://support.google.com/gemini/answer/13666746)
-- [Claude: borrar o renombrar conversaciones](https://support.claude.com/en/articles/8230524-delete-or-rename-a-conversation)
+- [ChatGPT: pinned chats](https://help.openai.com/en/articles/6825453-how-do-i-use-chatgpt-with-browsing)
+- [Gemini: manage recent and pinned chats](https://support.google.com/gemini/answer/13666746)
+- [Claude: delete or rename a conversation](https://support.claude.com/en/articles/8230524-delete-or-rename-a-conversation)
+
+## License
+
+[MIT](LICENSE)
